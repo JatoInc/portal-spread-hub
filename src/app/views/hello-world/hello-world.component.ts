@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpreadHubService } from '../services/spread-hub-api.service'
+import { SpreadHubService } from '../../infra/services/spread-hub-api.service'
 
 @Component({
   selector: 'app-hello-world',

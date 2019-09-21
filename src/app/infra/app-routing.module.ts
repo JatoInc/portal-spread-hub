@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloWorldComponent } from '../app/hello-world/hello-world.component';
+import { HelloWorldComponent } from '../views/hello-world/hello-world.component';
 
 
 const routes: Routes = [
