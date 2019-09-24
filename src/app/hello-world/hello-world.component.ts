@@ -14,8 +14,8 @@ export class HelloWorldComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    // this.content = await this.spreadHubService.helloWorld();
-    // console.log('this.content :', this.content);
+    this.content = await this.spreadHubService.helloWorld();
+    console.log('this.content :', this.content);
   }
 
 }
