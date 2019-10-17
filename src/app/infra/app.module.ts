@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { HelloWorldComponent } from '../views/hello-world/hello-world.component';
 import { RouterModule } from '@angular/router';
 import { CuratorComponent } from '../views/curator/curator.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from '../views/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloWorldComponent,
-    CuratorComponent
+    CuratorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
