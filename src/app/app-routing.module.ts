@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HelloWorldComponent } from '../app/hello-world/hello-world.component';
 import { LoginComponent } from '../app/views/login/login.component';
+import { ProfessorListComponent } from './views/professor/professor-list/professor-list.component';
+import { StudentListComponent } from './views/student/student-list/student-list.component';
+import { CuratorListComponent } from './views/curator/curator-list/curator-list.component';
 
 
 const routes: Routes = [
-  {
-    path: 'hello-world', component: HelloWorldComponent,
-  },
-  {
-    path: 'login', component: LoginComponent,
-  }
+  { path: 'login', component: LoginComponent },
+  { path: 'professors', component: ProfessorListComponent },
+  { path: 'curators', component: CuratorListComponent },
+  { path: 'students', component: StudentListComponent },
 ];
 
 @NgModule({

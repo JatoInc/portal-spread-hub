@@ -3,23 +3,35 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { CuratorComponent } from './views/curator/curator.component';
-import { StudentComponent } from './views/student/student.component';
-import { ProfessorComponent } from './views/professor/professor.component';
-import { LoginComponent } from './views/login/login.component'; 
+import { LoginComponent } from './views/login/login.component';
+import { NavbarComponent } from './infra/navbar/navbar.component';
+import { NewCuratorComponent } from './views/curator/new-curator/new-curator.component';
+import { CuratorDetailsComponent } from './views/curator/curator-details/curator-details.component';
+import { CuratorListComponent } from './views/curator/curator-list/curator-list.component';
+import { NewProfessorComponent } from './views/professor/new-professor/new-professor.component';
+import { ProfessorDetailsComponent } from './views/professor/professor-details/professor-details.component';
+import { ProfessorListComponent } from './views/professor/professor-list/professor-list.component';
+import { NewStudentComponent } from './views/student/new-student/new-student.component';
+import { StudentDetailsComponent } from './views/student/student-details/student-details.component';
+import { StudentListComponent } from './views/student/student-list/student-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent,
-    CuratorComponent,
-    StudentComponent,
-    ProfessorComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    NewCuratorComponent,
+    CuratorDetailsComponent,
+    CuratorListComponent,
+    NewProfessorComponent,
+    ProfessorDetailsComponent,
+    ProfessorListComponent,
+    NewStudentComponent,
+    StudentDetailsComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,
