@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-curator-list',
@@ -8,10 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CuratorListComponent implements OnInit {
   dataSource: any = [];
-  test: any = []
+  test: any = [];
 
   displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
-
 
   name: string;
   position: number;
@@ -20,7 +22,9 @@ export class CuratorListComponent implements OnInit {
 
   ELEMENT_DATA: any;
 
-  constructor() {
+
+
+  constructor(private router: Router) {
     this.test = [
       {
         "id": 1,
@@ -39,7 +43,7 @@ export class CuratorListComponent implements OnInit {
       {
         "id": 3,
         "name": "Juliano Martinelly",
-        "document": "426187261827",
+        "document": "4261872618",
         "telephone": "(11)98928-3920",
         "email": "julianom@fatecpg.br",
       },
@@ -54,7 +58,10 @@ export class CuratorListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.test);
   }
 
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   tests() {
@@ -63,6 +70,11 @@ export class CuratorListComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  enterDetails(id) {
+    console.log('id :', id);
+    this.router.navigate(['/curators', id]);
   }
 
 }

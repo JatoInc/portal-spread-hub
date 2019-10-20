@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './views/login/login.component';
 import { NavbarComponent } from './infra/navbar/navbar.component';
@@ -17,13 +16,14 @@ import { NewStudentComponent } from './views/student/new-student/new-student.com
 import { StudentDetailsComponent } from './views/student/student-details/student-details.component';
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 
-import { MatTableModule } from '@angular/material';
-// import { MatFormField } from '@angular/material/form-field';
-import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule } from '@angular/material'
-import { MatGridListModule } from '@angular/material';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule, MatGridListModule } from '@angular/material'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatPaginatorIntl } from '@angular/material';
+import { CustomPaginator } from '../app/services/custom-label-paginator';
 
 @NgModule({
   declarations: [
@@ -55,10 +55,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatListModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   // exports: [RouterModule],
-  providers: [],
+  providers: [{ provide: MatPaginatorIntl, useValue: CustomPaginator() }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
