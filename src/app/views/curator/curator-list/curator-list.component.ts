@@ -6,10 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./curator-list.component.scss']
 })
 export class CuratorListComponent implements OnInit {
+  dataSource: any = []
+  test: any = []
 
-  constructor() { }
+  displayedColumns: string[] = ['id', 'value'];
 
-  ngOnInit() {
+
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+
+  ELEMENT_DATA: any;
+
+  constructor() {
+    this.test = [
+      {
+        "position": 1,
+        "name": "asd"
+      },
+      {
+        "position": 2,
+        "name": "dd"
+      },
+      {
+        "position": 3,
+        "name": "avvsd"
+      },
+    ]
+    this.dataSource = this.test;
+   }
+
+  ngOnInit() {    
   }
 
 }

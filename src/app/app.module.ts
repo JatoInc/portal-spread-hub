@@ -17,6 +17,7 @@ import { NewStudentComponent } from './views/student/new-student/new-student.com
 import { StudentDetailsComponent } from './views/student/student-details/student-details.component';
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 
+import { MatTableModule } from '@angular/material' 
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StudentListComponent } from './views/student/student-list/student-list.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   // exports: [RouterModule],
   providers: [],
