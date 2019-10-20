@@ -1,1 +1,37 @@
-<p>professor-details works!</p>
+<app-navbar></app-navbar>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Informações do Aluno</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <mat-list-item>Nome</mat-list-item>
+        <mat-list-item>Curso</mat-list-item>
+        <mat-list-item>RA</mat-list-item>
+    </mat-list>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Informações para contato</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <mat-list-item>Email</mat-list-item>
+        <mat-list-item>Telefone</mat-list-item>
+    </mat-list>
+</mat-card>
+
+<table mat-table [dataSource]="test" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Matéria </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -4,6 +4,7 @@ import { LoginComponent } from '../app/views/login/login.component';
 import { ProfessorListComponent } from './views/professor/professor-list/professor-list.component';
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 import { CuratorListComponent } from './views/curator/curator-list/curator-list.component';
+import { ProfessorDetailsComponent} from './views/professor/professor-details/professor-details.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'professors', component: ProfessorListComponent },
   { path: 'curators', component: CuratorListComponent },
   { path: 'students', component: StudentListComponent },
+  { path: 'vinicius', component: ProfessorDetailsComponent },
 ];
 
 @NgModule({
