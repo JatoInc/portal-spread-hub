@@ -16,11 +16,14 @@ import { NewStudentComponent } from './views/student/new-student/new-student.com
 import { StudentDetailsComponent } from './views/student/student-details/student-details.component';
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 
-import { MatTableModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule, MatGridListModule } from '@angular/material'
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatButtonModule } from '@angular/material/button'
+import { MatTableModule } from '@angular/material';
+// import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule, MatCardModule} from '@angular/material'
+import { MatGridListModule } from '@angular/material';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'
 
 import { MatPaginatorIntl } from '@angular/material';
 import { CustomPaginator } from '../app/services/custom-label-paginator';
@@ -56,7 +59,8 @@ import { CustomPaginator } from '../app/services/custom-label-paginator';
     MatListModule,
     MatGridListModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   // exports: [RouterModule],
   providers: [{ provide: MatPaginatorIntl, useValue: CustomPaginator() }],

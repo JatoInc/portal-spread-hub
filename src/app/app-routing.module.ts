@@ -5,6 +5,7 @@ import { ProfessorListComponent } from './views/professor/professor-list/profess
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 import { CuratorListComponent } from './views/curator/curator-list/curator-list.component';
 import { CuratorDetailsComponent } from './views/curator/curator-details/curator-details.component';
+import { ProfessorDetailsComponent} from './views/professor/professor-details/professor-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'curators', component: CuratorListComponent },
   { path: 'curators/:id', component: CuratorDetailsComponent },
   { path: 'students', component: StudentListComponent },
+  { path: 'vinicius', component: ProfessorDetailsComponent },
 ];
 
 @NgModule({

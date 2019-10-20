@@ -8,7 +8,7 @@ export class SpreadHubService {
   url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://40.117.99.226:4000/api/v1';
+    this.url = 'http://localhost:4000/api/v1';
   }
 
   async helloWorld() {
