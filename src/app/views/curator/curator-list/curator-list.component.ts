@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-curator-list',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./curator-list.component.scss']
 })
 export class CuratorListComponent implements OnInit {
-  dataSource: any = []
+  dataSource: any = [];
   test: any = []
 
-  displayedColumns: string[] = ['id', 'value'];
+  displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
 
 
   name: string;
@@ -22,22 +23,42 @@ export class CuratorListComponent implements OnInit {
   constructor() {
     this.test = [
       {
-        "position": 1,
-        "name": "asd"
+        "id": 1,
+        "name": "Carlos Malaquias",
+        "document": "1234567890",
+        "telephone": "(13)28192-2321",
+        "email": "carlos@fatecpg.br",
       },
       {
-        "position": 2,
-        "name": "dd"
+        "id": 2,
+        "name": "Rafael Pontes",
+        "document": "1092831728",
+        "telephone": "(13)98821-3920",
+        "email": "rafaelp@fatecpg.br",
       },
       {
-        "position": 3,
-        "name": "avvsd"
+        "id": 3,
+        "name": "Juliano Martinelly",
+        "document": "426187261827",
+        "telephone": "(11)98928-3920",
+        "email": "julianom@fatecpg.br",
+      },
+      {
+        "id": 4,
+        "name": "Pedro Galvão",
+        "document": "9823019283",
+        "telephone": "(13)3472-6029",
+        "email": "pedrog@fatecpg.br",
       },
     ]
-    this.dataSource = this.test;
-   }
+    this.dataSource = new MatTableDataSource(this.test);
+  }
 
-  ngOnInit() {    
+  ngOnInit() {
+  }
+
+  tests() {
+    console.log('oi');
   }
 
   applyFilter(filterValue: string) {

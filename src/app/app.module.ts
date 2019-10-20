@@ -20,6 +20,8 @@ import { StudentListComponent } from './views/student/student-list/student-list.
 import { MatTableModule } from '@angular/material';
 // import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule } from '@angular/material'
+import { MatGridListModule } from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -44,14 +46,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatTableModule,
     // MatFormField,
-    MatInputModule, 
-    MatOptionModule, 
-    MatSelectModule, 
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
     MatIconModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatPaginatorModule
   ],
   // exports: [RouterModule],
   providers: [],
