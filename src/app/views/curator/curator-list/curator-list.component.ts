@@ -40,4 +40,8 @@ export class CuratorListComponent implements OnInit {
   ngOnInit() {    
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }

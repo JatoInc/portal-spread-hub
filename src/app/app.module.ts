@@ -17,7 +17,11 @@ import { NewStudentComponent } from './views/student/new-student/new-student.com
 import { StudentDetailsComponent } from './views/student/student-details/student-details.component';
 import { StudentListComponent } from './views/student/student-list/student-list.component';
 
-import { MatTableModule } from '@angular/material' 
+import { MatTableModule } from '@angular/material';
+// import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule } from '@angular/material'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,16 @@ import { MatTableModule } from '@angular/material'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    // MatFormField,
+    MatInputModule, 
+    MatOptionModule, 
+    MatSelectModule, 
+    MatIconModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatListModule
   ],
   // exports: [RouterModule],
   providers: [],
