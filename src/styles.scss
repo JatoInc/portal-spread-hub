@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html,body {
+    height: 100%;
+} 
 
 table {
     width: 100%;
@@ -9,3 +13,24 @@ table {
 .pull-right {
     float: right !important;
 }
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1080px;
+}
+
+.example-radio-group {
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
+}
+
+body {
+    margin: 0;
+}
+  

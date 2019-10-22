@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './views/login/login.component';
-import { NavbarComponent } from './infra/navbar/navbar.component';
 import { NewCuratorComponent } from './views/curator/new-curator/new-curator.component';
 import { CuratorDetailsComponent } from './views/curator/curator-details/curator-details.component';
 import { CuratorListComponent } from './views/curator/curator-list/curator-list.component';
@@ -18,21 +17,25 @@ import { StudentListComponent } from './views/student/student-list/student-list.
 
 import { MatTableModule } from '@angular/material';
 // import { MatFormField } from '@angular/material/form-field';
-import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule, MatCardModule} from '@angular/material'
+import { MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material'
 import { MatGridListModule } from '@angular/material';
-import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { MatPaginatorIntl } from '@angular/material';
 import { CustomPaginator } from '../app/services/custom-label-paginator';
+import { MainNavComponent } from './infra/main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
     NewCuratorComponent,
     CuratorDetailsComponent,
     CuratorListComponent,
@@ -42,6 +45,7 @@ import { CustomPaginator } from '../app/services/custom-label-paginator';
     NewStudentComponent,
     StudentDetailsComponent,
     StudentListComponent,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,11 @@ import { CustomPaginator } from '../app/services/custom-label-paginator';
     MatGridListModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    MatRadioModule,
+    LayoutModule,
+    MatToolbarModule
   ],
   // exports: [RouterModule],
   providers: [{ provide: MatPaginatorIntl, useValue: CustomPaginator() }],
