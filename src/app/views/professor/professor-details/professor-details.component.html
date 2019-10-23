@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card style="margin: 5px;">
     <mat-card-header>
-        <mat-card-title>Informações do Aluno</mat-card-title>
+        <mat-card-title>Informações do Professor</mat-card-title>
     </mat-card-header>
     <mat-list>
         <mat-grid-list cols="3" rowHeight="5:1">
@@ -17,7 +17,7 @@
     </mat-list>
 </mat-card>
 
-<mat-card>
+<mat-card style="margin: 5px;">
     <mat-card-header>
         <mat-card-title>Informações para contato</mat-card-title>
     </mat-card-header>
@@ -33,22 +33,25 @@
     </mat-list>
 </mat-card>
 
-<mat-card>
+<mat-card style="margin: 5px;">
     <mat-card-header>
-        <mat-card-title>Informações para contato</mat-card-title>
+        <mat-card-title>Informações Acadêmicas</mat-card-title>
     </mat-card-header>
-    <table mat-table [dataSource]="test" class="mat-elevation-z8">
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> ID </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="value">
-            <th mat-header-cell *matHeaderCellDef> Matéria </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <mat-list>
+        <mat-grid-list cols="3" rowHeight="5:1">
+            <mat-grid-tile>
+                <mat-list-item>ID</mat-list-item>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list-item>Matérias</mat-list-item>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-list>
 </mat-card>
+
+<div class="pull-right">
+    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;"
+        [routerLink]="['/professors/new/professor']">Salvar</button>
+    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;"
+        [routerLink]="['/professors']">Cancelar</button>
+</div>

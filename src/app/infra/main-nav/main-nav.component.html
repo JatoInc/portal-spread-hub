@@ -1,7 +1,7 @@
-<mat-sidenav-container class="sidenav-container">
+<!-- <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="'over'"
+      [mode]="'side'"
       [opened]="opened">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
@@ -25,5 +25,69 @@
       </button>
     </mat-toolbar>
     <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<mat-toolbar id="mainToolbar" color="primary">
+  <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
+  Spread Hub
+  <span class="toolbar-spacer"></span>
+  <mat-icon class="toolbar-icon" matBadge="8" matBadgePosition="after" matBadgeColor="accent">notifications</mat-icon>
+</mat-toolbar>
+
+<mat-sidenav-container id="sidenavContainer" fullscreen>
+  <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen" opened>
+
+    <mat-list id="menus">
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['#']">
+          <mat-icon>attach_file</mat-icon>
+          Documentos
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['/students']">
+          <mat-icon>face</mat-icon>
+          Alunos
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['/curators']">
+          <mat-icon>person_pin</mat-icon>
+          Curadores
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['/professors']">
+          <mat-icon>supervisor_account</mat-icon>
+          Professores
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['/courses']">
+          <mat-icon>apps</mat-icon>
+          Cursos
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button class="menu-item" mat-flat-button [routerLink]="['/subjects']">
+          <mat-icon>folder</mat-icon>
+          Disciplinas
+        </button>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
+    <mat-selection-list class="dash-list">
+      <ng-content></ng-content>
+    </mat-selection-list>
   </mat-sidenav-content>
 </mat-sidenav-container>

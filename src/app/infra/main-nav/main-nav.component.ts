@@ -9,7 +9,9 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.scss']
 })
 export class MainNavComponent {
-  opened: Boolean = false;
+  // opened: Boolean = false;
+  isMenuOpen = true;
+  contentMargin: Number = 240;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -21,7 +23,17 @@ export class MainNavComponent {
 
   closeMenu() {
     console.log('entoru aqui');
-    this.opened = true;
+    // this.opened = true;
+  }
+
+  onToolbarMenuToggle() {
+    this.isMenuOpen = !this.isMenuOpen
+
+    if (!this.isMenuOpen) {
+      this.contentMargin = 70
+    } else {
+      this.contentMargin = 240;
+    }
   }
 
 }

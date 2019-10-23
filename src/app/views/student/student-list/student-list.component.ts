@@ -71,7 +71,7 @@ export class StudentListComponent implements OnInit {
 
   enterDetails(id) {
     console.log('id :', id);
-    this.router.navigate(['/professors', id]);
+    this.router.navigate(['/students', id]);
   }
 
 }

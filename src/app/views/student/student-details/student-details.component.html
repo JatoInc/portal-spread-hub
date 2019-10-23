@@ -1,1 +1,41 @@
-<p>student-details works!</p>
+<mat-card style="margin: 5px;">
+    <mat-card-header>
+        <mat-card-title>Informações do Aluno</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <mat-grid-list cols="3" rowHeight="5:1">
+            <mat-grid-tile>
+                <mat-list-item>Nome</mat-list-item>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list-item>Curso</mat-list-item>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list-item>RA</mat-list-item>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-list>
+</mat-card>
+
+<mat-card style="margin: 5px;">
+    <mat-card-header>
+        <mat-card-title>Informações para contato</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <mat-grid-list cols="3" rowHeight="5:1">
+            <mat-grid-tile>
+                <mat-list-item>Email</mat-list-item>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list-item>Telefone</mat-list-item>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-list>
+</mat-card>
+
+<div class="pull-right">
+    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;"
+        >Salvar</button>
+    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;"
+        [routerLink]="['/students']">Cancelar</button>
+</div>
