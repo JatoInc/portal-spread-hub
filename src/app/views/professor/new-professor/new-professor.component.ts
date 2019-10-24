@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProfessorComponent implements OnInit {
 
+  listOfSubjects: string[] = ['Matematica Discreta',
+    'Cálculo',
+    'Laboratório de Banco de Dados',
+    'Laboratório de Engenharia de Software',
+    'Programação Linear'];
+
   constructor() { }
 
   ngOnInit() {
