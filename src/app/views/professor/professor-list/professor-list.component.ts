@@ -22,8 +22,8 @@ export class ProfessorListComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   async ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     await this.get();
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(filterValue: string) {
