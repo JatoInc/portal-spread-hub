@@ -1,1 +1,47 @@
-<p>new-professor works!</p>
+<mat-card style="margin: 5px;">
+    <mat-card-header>
+        <mat-card-title>Informações do Professor</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <mat-grid-list cols="4" rowHeight="4:1">
+            <div class="example-container">
+                <mat-grid-tile>
+                    <mat-form-field style="width: 90%;">
+                        <input matInput placeholder="Nome" (keydown)="$event.stopPropagation()">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field style="width: 90%">
+                        <input matInput placeholder="RP">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field style="width: 90%">
+                        <input matInput placeholder="Telefone">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field style="width: 90%;">
+                        <input matInput placeholder="Email">
+                    </mat-form-field>
+                </mat-grid-tile>
+            </div>
+        </mat-grid-list>
+    </mat-list>
+</mat-card>
+
+<mat-card style="margin: 5px;">
+    <mat-card-header>
+        <mat-card-title>Disciplinas Lecionadas</mat-card-title>
+    </mat-card-header>
+    <mat-selection-list #subject class="wrapper-scroll">
+        <mat-list-option *ngFor="let subject of listOfSubjects" style="margin: 15px;">
+            {{subject}}
+        </mat-list-option>
+    </mat-selection-list>
+</mat-card>
+
+<div class="pull-right">
+    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;">Salvar</button>
+    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;">Cancelar</button>
+</div>
