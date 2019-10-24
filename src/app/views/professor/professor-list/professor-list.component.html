@@ -3,8 +3,7 @@
         <h1 style="padding: 15px">Professores</h1>
     </div>
     <div class="col-lg-6">
-        <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;"
-            [routerLink]="['/professors/new/professor']">Novo Professor</button>
+        <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;" [routerLink]="['/professors/new/professor']">Novo Professor</button>
     </div>
 </div>
 
@@ -18,7 +17,7 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
         </ng-container>
 
         <ng-container matColumnDef="document">
@@ -26,29 +25,22 @@
             <td mat-cell *matCellDef="let element"> {{element.document}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="courses">
-            <th mat-header-cell *matHeaderCellDef> Matérias </th>
-            <td mat-cell *matCellDef="let element"> {{element.courses}} </td>
-        </ng-container>
-
         <ng-container matColumnDef="telephone">
             <th mat-header-cell *matHeaderCellDef> Telefone </th>
-            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.phone}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> E-mail </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef> Opções </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element.id)"
-                    style="cursor: pointer;">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element.id)" style="cursor: pointer;">
                     visibility</mat-icon>
-                <mat-icon aria-hidden="false" aria-label="Example home icon"
-                    style="cursor: pointer; color: red; margin-left: 5px;">delete</mat-icon>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" style="cursor: pointer; color: red; margin-left: 5px;">delete</mat-icon>
             </td>
         </ng-container>
 

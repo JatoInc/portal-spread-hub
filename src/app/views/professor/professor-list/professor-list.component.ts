@@ -11,53 +11,50 @@ import { SpreadHubService } from '../../../services/spread-hub-api.service';
 })
 export class ProfessorListComponent implements OnInit {
   dataSource: any = [];
-  curators: any = [];
+  professor: any = [];
 
   displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
 
   constructor(private router: Router, private spreadHubService: SpreadHubService) {
-    this.curators = [
+    this.professor = [
       {
-        "id": 1,
-        "name": "Jonatas",
-        "document": "1234567890",
-        "telephone": "(13)28192-2321",
-        "email": "jonatass@fatecpg.br",
-        "courses": ["Sistemas da Informação", "Engenharia de Software 2"]
-      },
-      {
-        "id": 2,
-        "name": "Rodrigo Salgado",
-        "document": "1092831728",
-        "telephone": "(13)98821-3920",
-        "email": "rodrigos@fatecpg.br",
-        "courses": ["Laboratório de Engenharia de Software"],
-      },
-      {
-        "id": 3,
-        "name": "Simone Vieira",
-        "document": "4261872618",
-        "telephone": "(11)98928-3920",
-        "email": "simonev@fatecpg.br",
-        "courses": ["Laboratório de Banco de Dados", "Engenharia de Software 2", "Banco de Dados"],
-      },
-      {
-        "id": 4,
-        "name": "Paulo Cândido",
-        "document": "9823019283",
-        "telephone": "(13)3472-6029",
-        "email": "pauloc@fatecpg.br",
-        "courses": ["VBA"],
-      },
+        "responsible": [],
+        "deleted": false,
+        "_id": "5db0fba49bb70ca46881447c",
+        "user": {
+          "address": {
+            "street": "Rua Teófila Vanderlinde",
+            "number": "174",
+            "complement": "ap 708",
+            "city": "Praia Grande",
+            "state": "São Paulo",
+            "uf": "SP"
+          },
+          "access_level": 1,
+          "deleted": false,
+          "_id": "5db0fba49bb70ca46881447a",
+          "name": "Christian Moura",
+          "email": "christianmsbrito@gmail3.com",
+          "password": "$2b$10$Sgljt14fXzF0Lr.jJZXdVeD6pme.hnTqIE/zOx.zIfjVaIDtG9Ih.",
+          "phone": "13 981553840",
+          "createdAt": "2019-10-24T01:17:24.098Z",
+          "updatedAt": "2019-10-24T01:17:24.098Z"
+        },
+        "document": "1294545963",
+        "course": null,
+        "createdAt": "2019-10-24T01:17:24.332Z",
+        "updatedAt": "2019-10-24T01:17:24.332Z"
+      }
     ]
-    this.dataSource = new MatTableDataSource(this.curators);
+
+    this.dataSource = new MatTableDataSource(this.professor);
   }
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   async ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     await this.get();
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(filterValue: string) {
@@ -65,8 +62,8 @@ export class ProfessorListComponent implements OnInit {
   }
 
   async get() {
-    this.curators = await this.spreadHubService.getProfessors();
-    console.log('this.curators :', this.curators);
+    this.dataSource = new MatTableDataSource(this.professor);
+    console.log('this.professor :', this.professor);
   }
 
   enterDetails(id) {
