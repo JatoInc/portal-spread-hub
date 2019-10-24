@@ -44,11 +44,11 @@
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef> Opções </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element.id)"
+                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element._id)"
                     style="cursor: pointer;">
                     visibility</mat-icon>
                 <mat-icon aria-hidden="false" aria-label="Example home icon"
-                    style="cursor: pointer; color: red; margin-left: 5px;">delete</mat-icon>
+                    style="cursor: pointer; color: red; margin-left: 5px;" (click)="deleteStudent(element._id)">delete</mat-icon>
             </td>
         </ng-container>
 

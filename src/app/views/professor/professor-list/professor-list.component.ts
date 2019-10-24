@@ -11,12 +11,12 @@ import { SpreadHubService } from '../../../services/spread-hub-api.service';
 })
 export class ProfessorListComponent implements OnInit {
   dataSource: any = [];
-  curators: any = [];
+  professors: any = [];
 
   displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
 
   constructor(private router: Router, private spreadHubService: SpreadHubService) {
-    this.curators = [
+    this.professors = [
       {
         "id": 1,
         "name": "Jonatas",
@@ -50,7 +50,7 @@ export class ProfessorListComponent implements OnInit {
         "courses": ["VBA"],
       },
     ]
-    this.dataSource = new MatTableDataSource(this.curators);
+    this.dataSource = new MatTableDataSource(this.professors);
   }
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -65,8 +65,8 @@ export class ProfessorListComponent implements OnInit {
   }
 
   async get() {
-    this.curators = await this.spreadHubService.getProfessors();
-    console.log('this.curators :', this.curators);
+    this.professors = await this.spreadHubService.getProfessors();
+    console.log('this.professors :', this.professors);
   }
 
   enterDetails(id) {
