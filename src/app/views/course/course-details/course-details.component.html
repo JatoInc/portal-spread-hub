@@ -8,7 +8,7 @@
                 <mat-form-field hintLabel="Máximo de 40 caracteres" style="width: 100%; padding: 15px;"
                     (keydown)="$event.stopPropagation()">
                     <input matInput #input maxlength="40" placeholder="Nome" [(ngModel)]="courseName">
-                    <mat-hint align="end">{{input.value?.length || 0}}/40</mat-hint>
+                    <mat-hint align="end">{{courseName.length || 0}}/40</mat-hint>
                 </mat-form-field>
             </div>
         </div>
