@@ -18,27 +18,27 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="document">
-            <th mat-header-cell *matHeaderCellDef> R.P. </th>
-            <td mat-cell *matCellDef="let element"> {{element.document}} </td>
+        <ng-container matColumnDef="register">
+            <th mat-header-cell *matHeaderCellDef> R.A. </th>
+            <td mat-cell *matCellDef="let element"> {{element.register}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="courses">
+        <!-- <ng-container matColumnDef="courses">
             <th mat-header-cell *matHeaderCellDef> Matérias </th>
             <td mat-cell *matCellDef="let element"> {{element.courses}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <ng-container matColumnDef="telephone">
             <th mat-header-cell *matHeaderCellDef> Telefone </th>
-            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.phone}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> E-mail </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="options">

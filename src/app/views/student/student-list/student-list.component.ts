@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { SpreadHubService } from '../../../services/spread-hub-api.service';
+import { SpreadHubService } from '../../../infra/services/spread-hub-api.service';
 
 @Component({
   selector: 'app-student-list',
@@ -11,53 +11,49 @@ import { SpreadHubService } from '../../../services/spread-hub-api.service';
 })
 export class StudentListComponent implements OnInit {
   dataSource: any = [];
-  curators: any = [];
+  students: any = [];
 
-  displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
+  // displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
+  displayedColumns: string[] = ['name', 'register', 'telephone', 'email', 'options'];
 
   constructor(private router: Router, private spreadHubService: SpreadHubService) {
-    this.curators = [
+    this.students = [
       {
-        "id": 1,
-        "name": "Jonatas",
-        "document": "1234567890",
-        "telephone": "(13)28192-2321",
-        "email": "jonatass@fatecpg.br",
-        "courses": ["Sistemas da Informação", "Engenharia de Software 2"]
-      },
-      {
-        "id": 2,
-        "name": "Rodrigo Salgado",
-        "document": "1092831728",
-        "telephone": "(13)98821-3920",
-        "email": "rodrigos@fatecpg.br",
-        "courses": ["Laboratório de Engenharia de Software"],
-      },
-      {
-        "id": 3,
-        "name": "Simone Vieira",
-        "document": "4261872618",
-        "telephone": "(11)98928-3920",
-        "email": "simonev@fatecpg.br",
-        "courses": ["Laboratório de Banco de Dados", "Engenharia de Software 2", "Banco de Dados"],
-      },
-      {
-        "id": 4,
-        "name": "Paulo Cândido",
-        "document": "9823019283",
-        "telephone": "(13)3472-6029",
-        "email": "pauloc@fatecpg.br",
-        "courses": ["VBA"],
-      },
+        "responsible": [],
+        "deleted": false,
+        "_id": "5db0fba49bb70ca46881447c",
+        "user": {
+          "address": {
+            "street": "Rua Teófila Vanderlinde",
+            "number": "174",
+            "complement": "ap 708",
+            "city": "Praia Grande",
+            "state": "São Paulo",
+            "uf": "SP"
+          },
+          "access_level": 3,
+          "deleted": false,
+          "_id": "5db0fba49bb70ca46881447a",
+          "name": "Christian Moura",
+          "email": "christianmsbrito@gmail3.com",
+          "password": "$2b$10$Sgljt14fXzF0Lr.jJZXdVeD6pme.hnTqIE/zOx.zIfjVaIDtG9Ih.",
+          "phone": "13 981553840",
+          "createdAt": "2019-10-24T01:17:24.098Z",
+          "updatedAt": "2019-10-24T01:17:24.098Z"
+        },
+        "register": "1294545963",
+        "course": null,
+        "createdAt": "2019-10-24T01:17:24.332Z",
+        "updatedAt": "2019-10-24T01:17:24.332Z"
+      }
     ]
-    this.dataSource = new MatTableDataSource(this.curators);
   }
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   async ngOnInit() {
-    this.dataSource.paginator = this.paginator;
     await this.get();
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(filterValue: string) {
@@ -65,8 +61,10 @@ export class StudentListComponent implements OnInit {
   }
 
   async get() {
-    this.curators = await this.spreadHubService.getProfessors();
-    console.log('this.curators :', this.curators);
+    // this.students = await this.spreadHubService.getStudents();
+    this.dataSource = new MatTableDataSource(this.students);
+
+    console.log('this.students :', this.students);
   }
 
   enterDetails(id) {
