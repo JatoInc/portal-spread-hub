@@ -14,32 +14,32 @@
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="document">
+        <ng-container matColumnDef="register">
             <th mat-header-cell *matHeaderCellDef> R.A. </th>
-            <td mat-cell *matCellDef="let element"> {{element.document}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.register}} </td>
         </ng-container>
 
         <ng-container matColumnDef="telephone">
             <th mat-header-cell *matHeaderCellDef> Telefone </th>
-            <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.phone}} </td>
         </ng-container>
 
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> E-mail </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.user.email}} </td>
         </ng-container>
 
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef> Opções </th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element.id)"
+                <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="enterDetails(element._id)"
                     style="cursor: pointer;">
                     visibility</mat-icon>
                 <mat-icon aria-hidden="false" aria-label="Example home icon"
-                    style="cursor: pointer; color: red; margin-left: 5px;">delete</mat-icon>
+                    style="cursor: pointer; color: red; margin-left: 5px;" (click)="deleteCurator(element._id)">delete</mat-icon>
             </td>
         </ng-container>
 
@@ -47,5 +47,5 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator [length]="4" [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+    <mat-paginator [length]="this.curators.length" [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
 </div>

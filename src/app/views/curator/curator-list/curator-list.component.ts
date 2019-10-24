@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { SpreadHubService } from '../../../infra/services/spread-hub-api.service';
+
 @Component({
   selector: 'app-curator-list',
   templateUrl: './curator-list.component.html',
@@ -9,49 +11,33 @@ import { Router } from '@angular/router';
 })
 export class CuratorListComponent implements OnInit {
   dataSource: any = [];
+  listAllStudents: any = [];
   curators: any = [];
 
-  displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
+  displayedColumns: string[] = ['name', 'register', 'telephone', 'email', 'options'];
 
-  constructor(private router: Router) {
-    this.curators = [
-      {
-        "id": 1,
-        "name": "Carlos Malaquias",
-        "document": "1234567890",
-        "telephone": "(13)28192-2321",
-        "email": "carlos@fatecpg.br",
-      },
-      {
-        "id": 2,
-        "name": "Rafael Pontes",
-        "document": "1092831728",
-        "telephone": "(13)98821-3920",
-        "email": "rafaelp@fatecpg.br",
-      },
-      {
-        "id": 3,
-        "name": "Juliano Martinelly",
-        "document": "4261872618",
-        "telephone": "(11)98928-3920",
-        "email": "julianom@fatecpg.br",
-      },
-      {
-        "id": 4,
-        "name": "Pedro Galvão",
-        "document": "9823019283",
-        "telephone": "(13)3472-6029",
-        "email": "pedrog@fatecpg.br",
-      },
-    ]
-    this.dataSource = new MatTableDataSource(this.curators);
-  }
+  constructor(private router: Router, private spreadHubService: SpreadHubService) { }
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.get();
     this.dataSource.paginator = this.paginator;
   }
+
+  async get() {
+    try {
+      this.curators = await this.spreadHubService.getStudents();
+      this.curators = this.curators.filter(curator => curator.user.access_level == 2)
+      this.dataSource = new MatTableDataSource(this.curators);
+      console.log('this.curators :', this.curators);
+
+    } catch (err) {
+      throw err;
+    }
+  }
+
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -61,5 +47,16 @@ export class CuratorListComponent implements OnInit {
     console.log('id :', id);
     this.router.navigate(['/curators', id]);
   }
+
+  async deleteCurator(id) {
+    try {
+      let index = this.curators.findIndex(cur => cur._id == id);
+      this.dataSource.data.splice(index, 1)
+      await this.spreadHubService.deleteCurator(id);
+    } catch (err) {
+      throw err
+    }
+  }
+
 
 }
