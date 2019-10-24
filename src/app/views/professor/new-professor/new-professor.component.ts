@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SpreadHubService } from '../../../infra/services/spread-hub-api.service';
 
 @Component({
   selector: 'app-new-professor',
@@ -6,6 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-professor.component.scss']
 })
 export class NewProfessorComponent implements OnInit {
+  subjects: any;
+  selectedSubject: any;
+
+  register: string;
+  password: string;
+  email: string;
+  name: string;
+  phone: string;
+  street: string;
+  number: string;
+  complement: string;
+  city: string;
+  state: string;
+  uf: string;
 
   listOfSubjects: string[] = ['Matematica Discreta',
     'Cálculo',
@@ -13,9 +29,41 @@ export class NewProfessorComponent implements OnInit {
     'Laboratório de Engenharia de Software',
     'Programação Linear'];
 
-  constructor() { }
+  constructor(private spreadHubService: SpreadHubService, private router: Router) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.getSubjects();
   }
 
+  async getSubjects() {
+    this.subjects = await this.spreadHubService.getSubjects();
+    console.log('this.subjects :', this.subjects);
+  }
+
+  async createProfessor() {
+    try {
+      let body = {
+        "register": this.register,
+        "password": "teste@123",
+        "email": this.email,
+        "name": this.name,
+        "phone": this.phone,
+        "subject": this.selectedSubject,
+        "address": {
+          "street": this.street,
+          "number": this.number,
+          "complement": this.complement,
+          "city": this.city,
+          "state": this.state,
+          "uf": this.uf
+        }
+      }
+
+      await this.spreadHubService.createProfessor(body);
+      this.router.navigate(['/professor']);
+
+    } catch (err) {
+      throw err;
+    }
+  }
 }

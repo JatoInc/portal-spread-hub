@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SpreadHubService } from '../../../infra/services/spread-hub-api.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-details',
@@ -6,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-details.component.scss']
 })
 export class CourseDetailsComponent implements OnInit {
+  id: any;
+  course: any;
+  courseName: any;
   subject: any;
   subjects: any = [];
-  courseName = "Análise e Desenvolvimento de Dados"
 
-  constructor() {
+  constructor(private spreadHubService: SpreadHubService, private router: Router, private route: ActivatedRoute) {
     this.subjects = [
       {
         "id": 1,
@@ -27,7 +32,14 @@ export class CourseDetailsComponent implements OnInit {
     ]
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    await this.getCourse()
+  }
+
+  async getCourse() {
+    this.course = await this.spreadHubService.getCourseById(this.id);
+    this.courseName = this.course.name
   }
 
   addSubject() {

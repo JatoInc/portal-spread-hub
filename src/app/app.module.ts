@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MatPaginatorIntl } from '@angular/material';
 import { CustomPaginator } from '../app/services/custom-label-paginator';
@@ -80,7 +81,8 @@ import { NewSubjectComponent } from './views/subject/new-subject/new-subject.com
     MatSidenavModule,
     MatRadioModule,
     LayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCheckboxModule
   ],
   // exports: [RouterModule],
   providers: [{ provide: MatPaginatorIntl, useValue: CustomPaginator() }],

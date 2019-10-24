@@ -47,6 +47,8 @@ export class StudentListComponent implements OnInit {
 
   async deleteStudent(id) {
     try {
+      let index = this.students.findIndex(stu => stu._id == id);
+      this.dataSource.data.splice(index, 1)
       await this.spreadHubService.deleteStudent(id);
     } catch (err) {
       throw err

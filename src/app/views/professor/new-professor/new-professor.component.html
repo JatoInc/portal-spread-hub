@@ -1,32 +1,82 @@
-<mat-card style="margin: 5px;">
+<mat-card style="margin: 15px;">
     <mat-card-header>
-        <mat-card-title>Informações do Professor</mat-card-title>
+        <mat-card-title>Informações Pessoais</mat-card-title>
     </mat-card-header>
     <mat-list>
-        <mat-grid-list cols="4" rowHeight="4:1">
-            <div class="example-container">
-                <mat-grid-tile>
-                    <mat-form-field style="width: 90%;">
-                        <input matInput placeholder="Nome" (keydown)="$event.stopPropagation()">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field style="width: 90%">
-                        <input matInput placeholder="RP">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field style="width: 90%">
-                        <input matInput placeholder="Telefone">
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field style="width: 90%;">
-                        <input matInput placeholder="Email">
-                    </mat-form-field>
-                </mat-grid-tile>
+        <div class="row">
+            <div class="col-lg-8">
+                <mat-form-field hintLabel="Máximo de 40 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="Nome" [(ngModel)]="name">
+                    <mat-hint align="end">{{name?.length || 0}}/40</mat-hint>
+                </mat-form-field>
             </div>
-        </mat-grid-list>
+            <div class="col-lg-4">
+                <mat-form-field hintLabel="Máximo de 10 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="10" placeholder="R.P." [(ngModel)]="register">
+                    <mat-hint align="end">{{register?.length || 0}}/10</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field hintLabel="Máximo de 40 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="E-mail" [(ngModel)]="email">
+                    <mat-hint align="end">{{email?.length || 0}}/40</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field hintLabel="Máximo de 11 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="11" placeholder="Telefone" [(ngModel)]="phone">
+                    <mat-hint align="end">{{phone?.length || 0}}/11</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-list>
+</mat-card>
+
+<mat-card style="margin: 15px;">
+    <mat-card-header>
+        <mat-card-title>Informações de Endereço</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <div class="row">
+            <div class="col-lg-6">
+                <mat-form-field hintLabel="Máximo de 100 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="100" placeholder="Rua" [(ngModel)]="street">
+                    <mat-hint align="end">{{street?.length || 0}}/100</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field style="width: 100%; padding: 15px;" (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="Número" [(ngModel)]="number">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-3">
+                <mat-form-field style="width: 100%; padding: 15px;" (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="Complemento" [(ngModel)]="complement">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-5">
+                <mat-form-field hintLabel="Máximo de 100 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="100" placeholder="Cidade" [(ngModel)]="city">
+                    <mat-hint align="end">{{city?.length || 0}}/100</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-5">
+                <mat-form-field style="width: 100%; padding: 15px;" (keydown)="$event.stopPropagation()">
+                    <input matInput #input placeholder="Estado" [(ngModel)]="state">
+                </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+                <mat-form-field style="width: 100%; padding: 15px;" (keydown)="$event.stopPropagation()">
+                    <input matInput #input placeholder="UF" [(ngModel)]="uf">
+                </mat-form-field>
+            </div>
+        </div>
     </mat-list>
 </mat-card>
 
@@ -34,9 +84,9 @@
     <mat-card-header>
         <mat-card-title>Disciplinas Lecionadas</mat-card-title>
     </mat-card-header>
-    <mat-selection-list #subject class="wrapper-scroll">
-        <mat-list-option *ngFor="let subject of listOfSubjects" style="margin: 15px;">
-            {{subject}}
+    <mat-selection-list #subject color="primary" class="wrapper-scroll" [(ngModel)]="selectedSubject">
+        <mat-list-option *ngFor="let subject of subjects" [value]="subject" style="margin: 15px;">
+            {{subject.name}}
         </mat-list-option>
     </mat-selection-list>
 </mat-card>
