@@ -31,6 +31,12 @@ import { CustomPaginator } from '../app/services/custom-label-paginator';
 import { MainNavComponent } from './infra/main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CourseListComponent } from './views/course/course-list/course-list.component';
+import { CourseDetailsComponent } from './views/course/course-details/course-details.component';
+import { NewCourseComponent } from './views/course/new-course/new-course.component';
+import { SubjectListComponent } from './views/subject/subject-list/subject-list.component';
+import { SubjectDetailsComponent } from './views/subject/subject-details/subject-details.component';
+import { NewSubjectComponent } from './views/subject/new-subject/new-subject.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +52,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     StudentDetailsComponent,
     StudentListComponent,
     MainNavComponent,
+    CourseListComponent,
+    CourseDetailsComponent,
+    NewCourseComponent,
+    SubjectListComponent,
+    SubjectDetailsComponent,
+    NewSubjectComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,49 @@
+<mat-card style="margin: 15px;">
+    <mat-card-header>
+        <mat-card-title>Informações do Curso</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <div class="row">
+            <div class="col-lg-12">
+                <mat-form-field hintLabel="Máximo de 40 caracteres" style="width: 100%; padding: 15px;"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="Nome">
+                    <mat-hint align="end">{{input.value?.length || 0}}/40</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-list>
+</mat-card>
+
+<!-- <mat-card style="margin: 15px;">
+    <mat-card-header>
+        <mat-card-title>Adicionar Disciplinas ao Curso</mat-card-title>
+    </mat-card-header>
+    <mat-list>
+        <div class="row" style="padding: 15px;">
+            <div class="col-lg-6">
+                <mat-form-field hintLabel="Máximo de 40 caracteres" style="width: 75%"
+                    (keydown)="$event.stopPropagation()">
+                    <input matInput #input maxlength="40" placeholder="Disciplina" [(ngModel)]="subject">
+                    <mat-hint align="end">{{input.value?.length || 0}}/40</mat-hint>
+                </mat-form-field><br>
+                <button mat-raised-button color="success" (click)="addSubject()"
+                    style="margin-top: 10px; background: green; color: white;">Criar</button>
+            </div>
+            <div class="col-lg-6 pull-right">
+
+                <p *ngFor="let subject of subjects; let i = index;">
+                    <mat-icon (click)="removeSubject(null, i)" id="toolbarMenu" style="color: red;">minimize</mat-icon>
+                    {{subject.name}}
+                </p>
+            </div>
+        </div>
+    </mat-list>
+</mat-card> -->
+
+<div class="pull-right">
+    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;"
+        [routerLink]="['/professors/new/professor']">Salvar</button>
+    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;"
+        [routerLink]="['/courses']">Cancelar</button>
+</div>
