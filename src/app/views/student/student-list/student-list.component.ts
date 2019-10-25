@@ -13,10 +13,9 @@ export class StudentListComponent implements OnInit {
   dataSource: any = [];
   students: any = [];
 
-  // displayedColumns: string[] = ['name', 'document', 'telephone', 'email', 'options'];
-  displayedColumns: string[] = ['name', 'register', 'telephone', 'email', 'options'];
+  displayedColumns: string[] = ['user', 'register', 'telephone', 'email', 'options'];
 
-  constructor(private router: Router, private spreadHubService: SpreadHubService) { }
+  constructor(private router: Router, private spreadHubService: SpreadHubService) {}
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -26,7 +25,7 @@ export class StudentListComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase()
   }
 
   async get() {
@@ -34,7 +33,12 @@ export class StudentListComponent implements OnInit {
       this.students = await this.spreadHubService.getStudents();
       this.dataSource = new MatTableDataSource(this.students);
 
-      console.log('this.students :', this.students);
+      this.dataSource.filterPredicate = (data, filter) => {
+        return (data.user.name.indexOf(filter) !== -1) || 
+        (data.user.email.indexOf(filter) !== -1) || 
+        (data.user.phone.indexOf(filter) !== -1) ||
+        (data.register.indexOf(filter) !== -1)
+      }
 
     } catch (err) {
       throw err;
@@ -48,11 +52,13 @@ export class StudentListComponent implements OnInit {
   async deleteStudent(id) {
     try {
       let index = this.students.findIndex(stu => stu._id == id);
-      this.dataSource.data.splice(index, 1)
+      this.students.splice(index, 1)
+      this.dataSource = new MatTableDataSource(this.students);
       await this.spreadHubService.deleteStudent(id);
     } catch (err) {
       throw err
     }
   }
+
 
 }

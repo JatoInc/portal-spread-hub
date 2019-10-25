@@ -44,23 +44,25 @@ export class NewProfessorComponent implements OnInit {
     try {
       let body = {
         "register": this.register,
-        "password": "teste@123",
-        "email": this.email,
-        "name": this.name,
-        "phone": this.phone,
         "subject": this.selectedSubject,
-        "address": {
-          "street": this.street,
-          "number": this.number,
-          "complement": this.complement,
-          "city": this.city,
-          "state": this.state,
-          "uf": this.uf
+        "user": {
+          "password": "teste@123",
+          "email": this.email,
+          "name": this.name,
+          "phone": this.phone,
+          "address": {
+            "street": this.street,
+            "number": this.number,
+            "complement": this.complement,
+            "city": this.city,
+            "state": this.state,
+            "uf": this.uf
+          }
         }
       }
 
       await this.spreadHubService.createProfessor(body);
-      this.router.navigate(['/professor']);
+      this.router.navigate(['/professors']);
 
     } catch (err) {
       throw err;

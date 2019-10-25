@@ -80,14 +80,15 @@ export class StudentDetailsComponent implements OnInit {
       //   uf: this.backupInfo.user.address.uf,
       // }
 
-      console.log('this.backupInfo :', this.backupInfo);
-      return
-
       await this.spreadHubService.updateStudent(this.id, this.backupInfo);
 
       if (this.isCurator) {
         await this.spreadHubService.createCurator(this.id);
+      }
 
+      if (!this.isCurator && this.backupInfo.user.access_level == 2) {
+        console.log('entrou');
+        await this.spreadHubService.deleteCurator(this.id);
       }
 
       this.router.navigate(['/students']);

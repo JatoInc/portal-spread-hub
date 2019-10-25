@@ -34,6 +34,12 @@ export class ProfessorListComponent implements OnInit {
     this.professors = await this.spreadHubService.getProfessors();
     this.dataSource = new MatTableDataSource(this.professors);
 
+    this.dataSource.filterPredicate = (data, filter) => {
+      return (data.user.name.indexOf(filter) !== -1) || 
+      (data.user.email.indexOf(filter) !== -1) || 
+      (data.register.indexOf(filter) !== -1)
+    }
+
     console.log('this.professors :', this.professors);
   }
 
@@ -44,6 +50,9 @@ export class ProfessorListComponent implements OnInit {
 
   async deleteProfessor(id) {
     try {
+      let index = this.professors.findIndex(pro => pro._id == id);
+      this.professors.splice(index, 1)
+      this.dataSource = new MatTableDataSource(this.professors);
       await this.spreadHubService.deleteProfessor(id);
     } catch (err) {
       throw err

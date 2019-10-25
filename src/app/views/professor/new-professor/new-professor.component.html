@@ -85,13 +85,13 @@
         <mat-card-title>Disciplinas Lecionadas</mat-card-title>
     </mat-card-header>
     <mat-selection-list #subject color="primary" class="wrapper-scroll" [(ngModel)]="selectedSubject">
-        <mat-list-option *ngFor="let subject of subjects" [value]="subject" style="margin: 15px;">
+        <mat-list-option *ngFor="let subject of subjects" [value]="subject._id" style="margin: 15px;">
             {{subject.name}}
         </mat-list-option>
     </mat-selection-list>
 </mat-card>
 
 <div class="pull-right">
-    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;">Salvar</button>
-    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;">Cancelar</button>
+    <button mat-raised-button color="primary" class="pull-right" style="margin: 15px;" (click)="createProfessor()">Salvar</button>
+    <button mat-raised-button color="basic" class="pull-right" style="margin: 15px;" [routerLink]="['/professors']">Cancelar</button>
 </div>
