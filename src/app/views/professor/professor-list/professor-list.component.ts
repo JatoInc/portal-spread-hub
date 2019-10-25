@@ -35,6 +35,7 @@ export class ProfessorListComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.professors);
 
     this.dataSource.filterPredicate = (data, filter) => {
+      console.log('object :', filter);
       return (data.user.name.indexOf(filter) !== -1) || 
       (data.user.email.indexOf(filter) !== -1) || 
       (data.register.indexOf(filter) !== -1)

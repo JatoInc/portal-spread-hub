@@ -23,12 +23,14 @@ export class ProfessorDetailsComponent implements OnInit {
   state: any;
   uf: any;
   selectedSubject: any;
+  subjects: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private spreadHubService: SpreadHubService) { }
 
   async ngOnInit() {
     this.id = this.route.snapshot.params['id']
     await this.getProfessor();
+    await this.getSubjects();
   }
 
   async getProfessor() {
@@ -49,6 +51,11 @@ export class ProfessorDetailsComponent implements OnInit {
     this.selectedSubject = this.professor.selectedSubject
   }
 
+  async getSubjects() {
+    this.subjects = await this.spreadHubService.getSubjects();
+    console.log('this.subjects :', this.subjects);
+  }
+
   async updateProfessor() {
     try {
       this.backupInfo = Object.assign({}, this.professor);
@@ -63,6 +70,8 @@ export class ProfessorDetailsComponent implements OnInit {
       this.backupInfo.user.address.city = this.city
       this.backupInfo.user.address.state = this.state
       this.backupInfo.user.address.uf = this.uf
+
+      this.backupInfo.subject = this.backupInfo.subject.map(sub => sub._id);
 
       delete this.backupInfo._id;
 

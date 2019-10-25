@@ -30,6 +30,13 @@ export class CuratorListComponent implements OnInit {
     try {
       this.curators = await this.spreadHubService.getCurators();
       this.dataSource = new MatTableDataSource(this.curators);
+
+      this.dataSource.filterPredicate = (data, filter) => {
+        return (data.user.name.indexOf(filter) !== -1) ||
+          (data.user.email.indexOf(filter) !== -1) ||
+          (data.user.phone.indexOf(filter) !== -1) ||
+          (data.register.indexOf(filter) !== -1)
+      }
       console.log('this.curators :', this.curators);
 
     } catch (err) {
@@ -49,7 +56,7 @@ export class CuratorListComponent implements OnInit {
   async deleteCurator(id) {
     try {
       console.log('oia', id);
-      
+
       let index = this.curators.findIndex(cur => cur._id == id);
       this.curators.splice(index, 1);
       this.dataSource = new MatTableDataSource(this.curators);
