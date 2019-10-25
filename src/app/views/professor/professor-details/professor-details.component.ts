@@ -66,9 +66,6 @@ export class ProfessorDetailsComponent implements OnInit {
 
       delete this.backupInfo._id;
 
-      console.log('this.backupInfo :', this.backupInfo);
-      return;
-
       // let treatedBody = {
       //   name: this.backupInfo.user.name,
       //   register: this.backupInfo.register,
