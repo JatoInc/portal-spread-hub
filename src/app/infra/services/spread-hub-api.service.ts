@@ -109,7 +109,7 @@ export class SpreadHubService {
 
 
   async getCurators() {
-    return this.http.get(`${this.url}/curators?_full=true`)
+    return this.http.get(`${this.url}/curators`)
       .toPromise()
       .catch((err: HttpErrorResponse) => Promise.reject(err));
   }

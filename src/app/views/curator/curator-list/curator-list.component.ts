@@ -28,8 +28,7 @@ export class CuratorListComponent implements OnInit {
 
   async get() {
     try {
-      this.curators = await this.spreadHubService.getStudents();
-      this.curators = this.curators.filter(curator => curator.user.access_level == 2)
+      this.curators = await this.spreadHubService.getCurators();
       this.dataSource = new MatTableDataSource(this.curators);
       console.log('this.curators :', this.curators);
 
@@ -44,14 +43,16 @@ export class CuratorListComponent implements OnInit {
   }
 
   enterDetails(id) {
-    console.log('id :', id);
     this.router.navigate(['/curators', id]);
   }
 
   async deleteCurator(id) {
     try {
+      console.log('oia', id);
+      
       let index = this.curators.findIndex(cur => cur._id == id);
-      this.dataSource.data.splice(index, 1)
+      this.curators.splice(index, 1);
+      this.dataSource = new MatTableDataSource(this.curators);
       await this.spreadHubService.deleteCurator(id);
     } catch (err) {
       throw err
