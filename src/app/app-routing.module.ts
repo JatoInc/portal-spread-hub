@@ -17,6 +17,8 @@ import { CourseListComponent } from './views/course/course-list/course-list.comp
 import { CourseDetailsComponent } from './views/course/course-details/course-details.component';
 import { NewCourseComponent } from './views/course/new-course/new-course.component';
 
+import { DocumentListComponent } from './views/document/document-list/document-list.component'
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   { path: 'courses', component: CourseListComponent },
   { path: 'courses/:id', component: CourseDetailsComponent },
   { path: 'courses/new/course', component: NewCourseComponent },
+
+  { path: 'documents', component: DocumentListComponent }
 ];
 
 @NgModule({

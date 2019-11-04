@@ -1,3 +1,4 @@
+import { environment } from '../../../environments/environment'
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
 
@@ -8,7 +9,7 @@ export class SpreadHubService {
   url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://40.87.43.5:4000/api/v1';
+    this.url = environment.spreadHubApi;
   }
 
   async getStudents() {
@@ -168,5 +169,20 @@ export class SpreadHubService {
     return this.http.post(`${this.url}/subjects/${id}`, {})
       .toPromise()
       .catch((err: HttpErrorResponse) => Promise.reject(err));
+  }
+
+
+  async uploadFiles(files) {
+    const body = new FormData();
+    
+    Object.values(files).forEach((file: any) => {
+      body.append('files', file);
+    });
+
+    console.log('body  :', body);
+
+    return this.http.post(`${this.url}/documents`, body)
+      .toPromise()
+      .catch((err: HttpErrorResponse) => Promise.reject(err)); 
   }
 }

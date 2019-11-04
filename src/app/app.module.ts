@@ -38,6 +38,7 @@ import { NewCourseComponent } from './views/course/new-course/new-course.compone
 import { SubjectListComponent } from './views/subject/subject-list/subject-list.component';
 import { SubjectDetailsComponent } from './views/subject/subject-details/subject-details.component';
 import { NewSubjectComponent } from './views/subject/new-subject/new-subject.component';
+import { DocumentListComponent } from './views/document/document-list/document-list.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { NewSubjectComponent } from './views/subject/new-subject/new-subject.com
     SubjectListComponent,
     SubjectDetailsComponent,
     NewSubjectComponent,
+    DocumentListComponent
   ],
   imports: [
     BrowserModule,
