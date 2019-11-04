@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server js",
+    "start": "ng serve --configuration=production",
+    "dev": "ng serve --configuration=local",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod --aot"
   },
   "engines": {
     "node": "10.9.0",
