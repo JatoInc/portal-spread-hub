@@ -26,7 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { MatPaginatorIntl } from '@angular/material';
 import { CustomPaginator } from '../app/services/custom-label-paginator';
 import { MainNavComponent } from './infra/main-nav/main-nav.component';
@@ -42,6 +42,7 @@ import { DocumentListComponent } from './views/document/document-list/document-l
 
 @NgModule({
   declarations: [
+    DocumentListComponent,
     AppComponent,
     LoginComponent,
     NewCuratorComponent,
@@ -63,6 +64,7 @@ import { DocumentListComponent } from './views/document/document-list/document-l
     DocumentListComponent
   ],
   imports: [
+    NgxDocViewerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
