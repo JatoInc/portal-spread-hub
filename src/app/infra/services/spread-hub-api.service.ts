@@ -12,6 +12,17 @@ export class SpreadHubService {
     this.url = environment.spreadHubApi;
   }
 
+  async getAuthToken(user, password) {
+    const basic = btoa(`Basic ${user}:${password}`);
+    return this.http.post(`${this.url}/login`, {}, {
+      headers: new HttpHeaders({
+        Authorization: basic
+      })
+    }).toPromise()
+      .catch((err: HttpErrorResponse) => Promise.reject(err));
+  }
+
+
   async getStudents() {
     return this.http.get(`${this.url}/students?_full=true`)
       .toPromise()
@@ -174,15 +185,13 @@ export class SpreadHubService {
 
   async uploadFiles(files) {
     const body = new FormData();
-    
+
     Object.values(files).forEach((file: any) => {
       body.append('files', file);
     });
 
-    console.log('body  :', body);
-
     return this.http.post(`${this.url}/documents`, body)
       .toPromise()
-      .catch((err: HttpErrorResponse) => Promise.reject(err)); 
+      .catch((err: HttpErrorResponse) => Promise.reject(err));
   }
 }

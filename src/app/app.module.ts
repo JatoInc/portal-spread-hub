@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './views/login/login.component';
 import { NewCuratorComponent } from './views/curator/new-curator/new-curator.component';
 import { CuratorDetailsComponent } from './views/curator/curator-details/curator-details.component';
@@ -39,6 +39,7 @@ import { SubjectListComponent } from './views/subject/subject-list/subject-list.
 import { SubjectDetailsComponent } from './views/subject/subject-details/subject-details.component';
 import { NewSubjectComponent } from './views/subject/new-subject/new-subject.component';
 import { DocumentListComponent } from './views/document/document-list/document-list.component';
+import { TokenInterceptor } from './helpers/http-interceptor';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,9 @@ import { DocumentListComponent } from './views/document/document-list/document-l
     MatCheckboxModule
   ],
   // exports: [RouterModule],
-  providers: [{ provide: MatPaginatorIntl, useValue: CustomPaginator() }],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: CustomPaginator() },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
