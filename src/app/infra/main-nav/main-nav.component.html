@@ -33,6 +33,7 @@
   <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
   Spread Hub
   <span class="toolbar-spacer"></span>
+  <a [routerLink]="['/documents']" rel="noopener noreferrer" (click)="login()">login</a>
   <mat-icon class="toolbar-icon" matBadge="8" matBadgePosition="after" matBadgeColor="accent">notifications</mat-icon>
 </mat-toolbar>
 
