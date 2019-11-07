@@ -8,7 +8,47 @@ import { SpreadHubService } from '../../../infra/services/spread-hub-api.service
 })
 export class DocumentListComponent implements OnInit {
   files: FileList;
-  url: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY73b6hDAn-GPu5H5mVbX2OY27hT1Uw3DSqlDH6WMLGU-aVshpHA&s'
+
+  allFiles = [
+    {
+      "name": "arquivo",
+      "uploadedAt": "arquivo",
+      "approvedAt": "arquivo",
+      "filePath": "arquivo",
+      "uploadedBy": "arquivo",
+      "approvedBy": "arquivo",
+      "subject": "123"
+    },
+    {
+      "name": "arquivo",
+      "uploadedAt": "arquivo",
+      "approvedAt": "arquivo",
+      "filePath": "arquivo",
+      "uploadedBy": "arquivo",
+      "approvedBy": "arquivo",
+      "subject": "123"
+    },
+    {
+      "name": "arquivo",
+      "uploadedAt": "arquivo",
+      "approvedAt": "arquivo",
+      "filePath": "arquivo",
+      "uploadedBy": "arquivo",
+      "approvedBy": "arquivo",
+      "subject": "123"
+    },
+    {
+      "name": "arquivo",
+      "uploadedAt": "arquivo",
+      "approvedAt": "arquivo",
+      "filePath": "arquivo",
+      "uploadedBy": "arquivo",
+      "approvedBy": "arquivo",
+      "subject": "123"
+    },
+  ]
+  
+
   constructor(private DocumentService: SpreadHubService) { }
 
   async ngOnInit() {
