@@ -41,7 +41,7 @@ export class StudentListComponent implements OnInit {
       }
 
     } catch (err) {
-      throw err;
+      console.log(err);
     }
   }
 
@@ -56,7 +56,7 @@ export class StudentListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.students);
       await this.spreadHubService.deleteStudent(id);
     } catch (err) {
-      throw err
+      console.log(err)
     }
   }
 

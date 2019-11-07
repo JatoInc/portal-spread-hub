@@ -49,7 +49,7 @@ export class NewStudentComponent implements OnInit {
       this.router.navigate(['/students']);
       
     } catch (err) {
-      throw err
+      console.log(err);
     }
   }
 }

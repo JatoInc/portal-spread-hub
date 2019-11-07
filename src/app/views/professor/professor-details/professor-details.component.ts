@@ -93,8 +93,7 @@ export class ProfessorDetailsComponent implements OnInit {
       this.router.navigate(['/professors']);
 
     } catch (err) {
-
-      throw err;
+      console.log(err);
     }
   }
 

@@ -40,7 +40,7 @@ export class CuratorListComponent implements OnInit {
       console.log('this.curators :', this.curators);
 
     } catch (err) {
-      throw err;
+      console.log(err);
     }
   }
 
@@ -62,7 +62,7 @@ export class CuratorListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.curators);
       await this.spreadHubService.deleteCurator(id);
     } catch (err) {
-      throw err
+      console.log(err)
     }
   }
 

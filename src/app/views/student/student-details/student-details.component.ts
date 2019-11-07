@@ -94,8 +94,7 @@ export class StudentDetailsComponent implements OnInit {
       this.router.navigate(['/students']);
 
     } catch (err) {
-
-      throw err;
+      console.log(err);
     }
   }
 

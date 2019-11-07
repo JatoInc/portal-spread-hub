@@ -56,7 +56,7 @@ export class ProfessorListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.professors);
       await this.spreadHubService.deleteProfessor(id);
     } catch (err) {
-      throw err
+      console.log(err)
     }
   }
 }
