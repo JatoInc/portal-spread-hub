@@ -55,9 +55,7 @@ export class DocumentListComponent implements OnInit {
   }
   
   async fileSelected(event: any) {
-    const auth: any = await this.DocumentService.getAuthToken('christianmouraa@gmail.com', 'teste@123');
-    localStorage.setItem('auth_token', auth.token);
     this.files = event.srcElement.files;
-    // await this.DocumentService.uploadFiles(this.files);
+    await this.DocumentService.uploadFiles(this.files);
   }
 } 
