@@ -194,4 +194,10 @@ export class SpreadHubService {
       .toPromise()
       .catch((err: HttpErrorResponse) => Promise.reject(err));
   }
+
+  async getDocuments() {
+    return this.http.get(`${this.url}/documents`)
+      .toPromise()
+      .catch((err: HttpErrorResponse) => Promise.reject(err));
+  }
 }

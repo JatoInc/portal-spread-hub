@@ -2,9 +2,9 @@
 
 <div class="row" style="padding: 10px;">
     <ng-container *ngFor="let file of allFiles">
-        <div class="col-lg-3">
+        <div class="col-lg-3" style="cursor: pointer;" (click)="test()">
             <div class="card" style="width: 100%">
-                <div>PDF</div>
+                <div><a href="{{file.filePath}}" target="_blank">PDF</a></div>
                 <img style="padding: 10px;" class="card-img-top" src="../../../../assets/produto dikaza.png" height="300">
             </div>
         </div>
