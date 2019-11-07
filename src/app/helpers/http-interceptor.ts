@@ -9,7 +9,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (req.url.endsWith('/login')) {
       return next.handle(req);
     }
-    const token = `Basic ${localStorage.getItem('auth_token')}`;
+    const token = `Bearer ${localStorage.getItem('auth_token')}`;
     const modifiedReq = req.clone({
       headers: req.headers.set('Authorization', token),
     });
