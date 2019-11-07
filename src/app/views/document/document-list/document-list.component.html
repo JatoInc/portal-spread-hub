@@ -4,8 +4,11 @@
     <ng-container *ngFor="let file of allFiles">
         <div class="col-lg-3" style="cursor: pointer;" (click)="test()">
             <div class="card" style="width: 100%">
-                <div><a href="{{file.filePath}}" target="_blank">PDF</a></div>
+                <div>
+                    <a href="{{file.filePath}}" target="_blank">PDF</a>
+                </div>
                 <img style="padding: 10px;" class="card-img-top" src="../../../../assets/produto dikaza.png" height="300">
+                <h5 style="margin-left: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" [title]="file?.name" class="card-title">{{file?.name}}</h5>
             </div>
         </div>
     </ng-container>
